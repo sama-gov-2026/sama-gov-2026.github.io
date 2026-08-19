@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منظومة سيادة الأعمال الذكية</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #0b0f19;
+            color: #f8fafc;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+        }
+        .container { max-width: 1000px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 3rem; }
+        header h1 { color: #60a5fa; font-size: 2.3rem; margin-bottom: 0.5rem; font-weight: 800; }
+        header p { color: #94a3b8; font-size: 1.1rem; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .card {
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            border-top: 4px solid #3b82f6;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s, background 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #60a5fa;
+            background: #273548;
+        }
+        .card h3 { color: #38bdf8; margin-bottom: 1rem; font-size: 1.4rem; }
+        .card p { color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1.5rem; }
+        
+        .btn {
+            display: inline-block;
+            background: #2563eb;
+            color: #fff;
+            padding: 0.6rem 1.2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .btn:hover { background: #1d4ed8; }
+
+        .section-content {
+            display: none;
+            background: #1e293b;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            margin-top: 1rem;
+            border-right: 5px solid #3b82f6;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .section-content.active { display: block; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-content h2 { color: #38bdf8; margin-bottom: 1rem; font-size: 1.8rem; }
+        .section-content > p { color: #94a3b8; margin-bottom: 1.5rem; font-size: 1.05rem; }
+        
+        .content-box {
+            background: #0f172a;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #334155;
+        }
+        .content-box h4 { color: #60a5fa; margin-bottom: 0.75rem; font-size: 1.15rem; }
+        .content-box ul { margin-right: 1.2rem; color: #cbd5e1; }
+        .content-box li { margin-bottom: 0.5rem; }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            background: #334155;
+            color: #f8fafc;
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .back-btn:hover { background: #475569; }
+
+        footer {
+            color: #64748b;
+            font-size: 0.9rem;
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #1e293b;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>منظومة سيادة الأعمال الذكية</h1>
+            <p>المنصة التشغيلية الرقمية الموحدة للحوكمة والأداء المؤسسي</p>
+        </header>
+
+        <!-- القائمة الرئيسية -->
+        <div id="main-grid" class="grid">
+            <div class="card" onclick="showSection('gov')">
+                <h3>الحوكمة والإدارة</h3>
+                <p>تطوير الأطر التنظيمية، إعداد أدلة سياسات العمل، ورفع كفاءة النظم الإدارية المؤسسية بالكامل.</p>
+                <span class="btn">استعرض التفاصيل الكاملة</span>
+            </div>
+            
+            <div class="card" onclick="showSection('strategy')">
+                <h3>التخطيط الاستراتيجي</h3>
+                <p>صياغة الاستراتيجيات التشغيلية، بناء مؤشرات قياس الأداء (KPIs)، ومتابعة تنفيذ المبادرات.</p>
+                <span class="btn">استعرض التفاصيل الكاملة</span>
+            </div>
+            
+            <div class="card" onclick="showSection('operations')">
+                <h3>الكفاءة التشغيلية</h3>
+                <p>أتمتة العمليات، تقليل الهدر الإداري، وتحسين مسارات العمل لتعظيم الإنتاجية المؤسسية.</p>
+                <span class="btn">استعرض التفاصيل الكاملة</span>
+            </div>
+        </div>
+
+        <!-- محتوى قسم الحوكمة -->
+        <div id="gov" class="section-content">
+            <a class="back-btn" onclick="showMain()">← العودة للرئيسية</a>
+            <h2>قطاع الحوكمة والإدارة</h2>
+            <p>منظومة متكاملة تضمن الامتثال التنظيمي والشفافية المؤسسية وفق أحدث المعايير الإدارية المعتمدة.</p>
+            
+            <div class="content-box">
+                <h4>1. دليل سياسات العمل والإجراءات</h4>
+                <ul>
+                    <li>توثيق كامل للعمليات الإدارية، المالية، والتشغيلية للمنظمة.</li>
+                    <li>تحديد مسارات الاعتماد وصلاحيات التوقيع المالي والإداري.</li>
+                    <li>إعداد النماذج واللوائح الداخلية الموحدة للفرق واللجان.</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h4>2. هيكل الصلاحيات والمسؤوليات (Matrix)</h4>
+                <ul>
+                    <li>تطبيق مصفوفة توزيع الأدوار (RACI) لمنع ازدواجية المهام.</li>
+                    <li>تفويض الصلاحيات المؤسسية بمرونة تضمن استمرارية الأعمال.</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h4>3. إدارة المخاطر المؤسسية والامتثال</h4>
+                <ul>
+                    <li>رصد الثغرات التنظيمية والتشغيلية ووضع خطط استباقية لمعالجتها.</li>
+                    <li>متابعة التحديثات التنظيمية والتشريعية لضمان الالتزام المستمر.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- محتوى قسم التخطيط الاستراتيجي -->
+        <div id="strategy" class="section-content">
+            <a class="back-btn" onclick="showMain()">← العودة للرئيسية</a>
+            <h2>قطاع التخطيط الاستراتيجي</h2>
+            <p>آلية استراتيجية لترجمة الأهداف العليا للمنظومة إلى خطط تشغيلية قابلة للقياس والتنفيذ الفعّال.</p>
+            
+            <div class="content-box">
+                <h4>1. الخريطة الاستراتيجية المؤسسية</h4>
+                <ul>
+                    <li>صياغة الرسالة، الرؤية، والقيم الحاكمة للمنظومة.</li>
+                    <li>ربط الأهداف الاستراتيجية بالعمليات التشغيلية اليومية للفرق.</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h4>2. مؤشرات الأداء الرئيسية (KPIs)</h4>
+                <ul>
+                    <li>بناء لوحات قياس فورية لتقييم معدلات الإنجاز والأداء العام.</li>
+                    <li>تحديد المستهدفات الربع سنوية والسنوية بدقة واحترافية.</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h4>3. إدارة المحافظ والمبادرات</h4>
+                <ul>
+                    <li>متابعة الجداول الزمنية، الميزانيات المخصصة، ونسب التنفيذ.</li>
+                    <li>إصدار تقارير تحليلية دورية موجهة لصناع القرار للاستجابة السريعة.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- محتوى قسم الكفاءة التشغيلية -->
+        <div id="operations" class="section-content">
+            <a class="back-btn" onclick="showMain()">← العودة للرئيسية</a>
+            <h2>قطاع الكفاءة التشغيلية</h2>
+            <p>تركيز متكامل على تحسين مسارات العمل، أتمتة العمليات، وتعظيم العائد الاستثماري للموارد.</p>
+            
+            <div class="content-box">
+                <h4>1. هندسة وإعادة هندسة العمليات (BPR)</h4>
+                <ul>
+                    <li>تحليل وتدفق مسارات العمل الحالية واكتشاف مناطق الاختناق.</li>
+                    <li>إزالة الخطوات غير المضافة للقيمة واختصار دورة العمل.</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h4>2. أتمتة سير العمل الرقمي</h4>
+                <ul>
+                    <li>توظيف الحلول الذكية والأنظمة التقنية لتسريع إنجاز المهام.</li>
+                    <li>التحول الرقمي الكامل للنماذج الورقية والروتينية.</li>
+                </ul>
+            </div>
+
+            <div class="content-box">
+                <h4>3. قياس الإنتاجية وتقليل الهدر الإداري</h4>
+                <ul>
+                    <li>تحسين استغلال الموارد البشرية والمادية المتاحة بكفاءة عالية.</li>
+                    <li>تطبيق منهجيات الجودة المستمرة لرفع معايير مخرجات العمل.</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer>
+            جميع الحقوق محفوظة - منظومة سيادة الأعمال الذكية © 2026
+        </footer>
+    </div>
+
+    <script>
+        function showSection(id) {
+            document.getElementById('main-grid').style.display = 'none';
+            document.querySelectorAll('.section-content').forEach(el => el.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showMain() {
+            document.querySelectorAll('.section-content').forEach(el => el.classList.remove('active'));
+            document.getElementById('main-grid').style.display = 'grid';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
