@@ -3,69 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سما محمد العنزي | منظومة سيادة الأعمال</title>
+    <title>منظومة سيادة الأعمال الذكية</title>
     <style>
-        :root { --primary-color: #007bff; --bg-color: #0b0e14; --card-bg: #161b22; --text-color: #e6edf3; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 20px; line-height: 1.6; }
-        .container { max-width: 600px; margin: 0 auto; text-align: center; }
-        h1 { color: var(--primary-color); }
-        .btn { display: block; width: 100%; padding: 15px; margin: 10px 0; border-radius: 10px; text-decoration: none; font-weight: bold; color: white; transition: 0.3s; box-sizing: border-box; }
-        .btn-whatsapp { background-color: #25d366; }
-        .btn-email { background-color: var(--primary-color); }
-        .ai-box { background: var(--card-bg); padding: 20px; border-radius: 15px; border: 1px solid #30363d; margin-top: 30px; text-align: right; }
-        .ai-box h2, .ai-box p { text-align: center; }
-        textarea { width: 100%; height: 80px; background: #0d1117; color: white; border: 1px solid #30363d; border-radius: 8px; padding: 10px; margin-top: 10px; box-sizing: border-box; font-family: inherit; resize: vertical; }
-        button { background: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; margin-top: 10px; width: 100%; font-weight: bold; font-size: 1rem; }
-        #response { margin-top: 20px; background: #0d1117; padding: 15px; border-radius: 8px; border-right: 4px solid var(--primary-color); display: none; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: system-ui, sans-serif; background: #0b0f19; color: #f8fafc; line-height: 1.7; padding: 2rem 1rem; }
+        .container { max-width: 950px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 2.5rem; }
+        header h1 { color: #38bdf8; font-size: 2.4rem; margin-bottom: 0.75rem; font-weight: 800; }
+        header p { color: #94a3b8; font-size: 1.15rem; max-width: 800px; margin: 0 auto; line-height: 1.8; }
+        
+        .section-card { background: #111827; padding: 2rem; border-radius: 1.25rem; margin-bottom: 2rem; border: 1px solid #1f2937; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3); }
+        .section-card h2 { color: #38bdf8; margin-bottom: 0.75rem; font-size: 1.6rem; border-bottom: 2px solid #1f2937; padding-bottom: 0.75rem; }
+        .section-desc { color: #94a3b8; margin-bottom: 1.5rem; font-size: 1.05rem; }
+
+        .sub-box { background: #1e293b; padding: 1.5rem; border-radius: 1rem; margin-bottom: 1.25rem; border: 1px solid #334155; }
+        .sub-box h3 { color: #60a5fa; margin-bottom: 1rem; font-size: 1.25rem; }
+        
+        ul { list-style-type: none; }
+        ul li { margin-bottom: 0.85rem; padding-right: 1.5rem; position: relative; color: #e2e8f0; font-size: 1rem; }
+        ul li::before { content: "▪"; color: #38bdf8; position: absolute; right: 0; font-weight: bold; font-size: 1.3rem; }
+
+        .ai-chat-box { background: #111827; padding: 2rem; border-radius: 1.25rem; border: 1px solid #38bdf8; margin-top: 2rem; }
+        .ai-chat-box h2 { color: #38bdf8; margin-bottom: 0.5rem; font-size: 1.5rem; }
+        .chat-input-area { margin-top: 1.25rem; display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .chat-input-area input { flex: 1; padding: 0.85rem 1rem; border-radius: 0.75rem; border: 1px solid #334155; background: #1e293b; color: #fff; font-size: 1rem; min-width: 250px; }
+        .chat-input-area button { background: #0284c7; color: #fff; border: none; padding: 0.85rem 1.5rem; border-radius: 0.75rem; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .chat-input-area button:hover { background: #0369a1; }
+        .chat-response { margin-top: 1.25rem; background: #1e293b; padding: 1.25rem; border-radius: 0.75rem; border-right: 4px solid #38bdf8; color: #f1f5f9; display: none; }
+
+        .btn-group { display: flex; gap: 1rem; justify-content: center; margin: 2rem 0; flex-wrap: wrap; }
+        .action-btn { background: #22c55e; color: #fff; padding: 0.85rem 1.75rem; border-radius: 0.75rem; text-decoration: none; font-weight: bold; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3); }
+        .action-btn.email { background: #2563eb; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>سما محمد العنزي</h1>
-        <p>استشارات الحوكمة، تطوير المشاريع، وإعادة هندسة العمليات التشغيلية.</p>
+        <!-- المقدمة الفخمة والجديدة -->
+        <header>
+            <h1>منظومة سيادة الأعمال الذكية</h1>
+            <p>المرجعية الاستراتيجية المتكاملة لتمكين المؤسسات من إعادة هندسة الكفاءة التشغيلية، وترسيخ ركائز الحوكمة المؤسسية الشفافة. نبتكر حلولاً نوعية تترجم الأهداف العليا إلى خطط تنفيذية دقيقة، لنصنع معاً مستقبل النمو المستدام والتميز الريادي.</p>
+        </header>
 
-        <a href="https://wa.me/966559611720" class="btn btn-whatsapp" target="_blank">مراسلة عبر الواتساب (0559611720)</a>
-        <a href="mailto:sssooo7563@gmail.com" class="btn btn-email">إرسال بريد إلكتروني</a>
+        <!-- قطاع الكفاءة التشغيلية -->
+        <div class="section-card">
+            <h2>قطاع الكفاءة التشغيلية</h2>
+            <p class="section-desc">تحسين مسارات العمل، أتمتة العمليات، وتعظيم العائد الاستثماري للموارد بكفاءة عالية.</p>
+            
+            <div class="sub-box">
+                <h3>1. هندسة وإعادة هندسة العمليات (BPR)</h3>
+                <ul>
+                    <li>إزالة الخطوات غير المضافة للقيمة واختصار دورة العمل التشغيلية بشكل جذري.</li>
+                    <li>إعادة هيكلة تدفقات البيانات والموافقات الإدارية لتقليص زمن إنجاز المعاملات.</li>
+                    <li>توثيق نماذج العمل وتصميم خرائط تدفق تفصيلية (Flowcharts) لكافة الأقسام.</li>
+                </ul>
+            </div>
 
-        <div class="ai-box">
-            <h2>🤖 مساعد المنظومة الذكي</h2>
-            <p>اطرح أي سؤال حول الحوكمة، بناء السياسات، أو رفع الكفاءة المؤسسية، وسيجيبك المساعد فوراً!</p>
-            <textarea id="question" placeholder="اكتب استشارتك هنا..."></textarea>
-            <button onclick="getAnswer()">إرسال السؤال</button>
-            <div id="response"></div>
+            <div class="sub-box">
+                <h3>2. الأتمتة والتحول الرقمي للعمليات</h3>
+                <ul>
+                    <li>ربط الأنظمة المؤسسية لتقليل التدخل البشري ومنع ازدواجية الإدخال.</li>
+                    <li>تفعيل التقنيات الذكية في متابعة المهام وتقييم نسب إنجاز المشاريع فورياً.</li>
+                    <li>بناء مسارات رقمية آمنة لحفظ الوثائق والمستندات الحساسة وتسهيل استرجاعها.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- قطاع التخطيط الاستراتيجي -->
+        <div class="section-card">
+            <h2>قطاع التخطيط الاستراتيجي</h2>
+            <p class="section-desc">ترجمة الأهداف العليا للمنظومة إلى خطط تشغيلية قابلة للقياس والتنفيذ الفعّال.</p>
+            
+            <div class="sub-box">
+                <h3>1. مؤشرات الأداء الرئيسية (KPIs)</h3>
+                <ul>
+                    <li>بناء لوحات قياس فورية (Dashboards) لتقييم معدلات الإنجاز والأداء العام بدقة.</li>
+                    <li>ربط الأهداف الاستراتيجية بمؤشرات أداء قابلة للتحقق ومتابعة دورية.</li>
+                    <li>تحديد المستهدفات ربع السنوية والسنوية مع وضع خطط تصحيحية عند الانحراف.</li>
+                </ul>
+            </div>
+
+            <div class="sub-box">
+                <h3>2. دراسات الجدوى وتقييم المخاطر</h3>
+                <ul>
+                    <li>إعداد دراسات جدوى شاملة للمشاريع الجديدة مع تحليل التكاليف والعوائد المتوقعة.</li>
+                    <li>تحديد المخاطر التشغيلية والمالية المحتملة وبناء مصفوفة استباقية للتعامل معها.</li>
+                    <li>إجراء تحليلات السوق والمنافسين لضمان تنافسية المبادرات الاستراتيجية.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- قطاع الحوكمة والإدارة -->
+        <div class="section-card">
+            <h2>قطاع الحوكمة والإدارة</h2>
+            <p class="section-desc">منظومة متكاملة تضمن الامتثال التنظيمي والشفافية المؤسسية وفق أحدث المعايير.</p>
+            
+            <div class="sub-box">
+                <h3>1. دليل سياسات العمل والإجراءات</h3>
+                <ul>
+                    <li>توثيق كامل للعمليات الإدارية والمالية والتشغيلية للمنظومة بدقة.</li>
+                    <li>تحديد مسارات الاعتماد وصلاحيات التوقيع المالي والإداري لمنع التجاوزات.</li>
+                    <li>إعداد أدلة تنظم علاقة العمل الداخلية وحقوق وواجبات الأطراف بوضوح.</li>
+                </ul>
+            </div>
+
+            <div class="sub-box">
+                <h3>2. هيكل الصلاحيات والمسؤوليات (Matrix)</h3>
+                <ul>
+                    <li>تطبيق مصفوفة توزيع الأدوار (RACI) لمنع ازدواجية المهام وتحديد المسؤوليات بدقة.</li>
+                    <li>هيكلة اللجان الإدارية العليا وتحديد مهام واختصاصات مجالس الإدارة.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- أزرار التواصل (تم وضعها هنا قبل المساعد الذكي) -->
+        <div class="btn-group">
+            <a href="https://wa.me/966559611720" class="action-btn" target="_blank">💬 مراسلة عبر الواتساب (0559611720)</a>
+            <a href="mailto:sssooo7563@gmail.com" class="action-btn email">✉️ إرسال بريد إلكتروني</a>
+        </div>
+
+        <!-- مساعدة المنظومة الذكي للإستشارات (مع جافاسكريبت المطور) -->
+        <div class="ai-chat-box">
+            <h2>🤖 مساعد المنظومة الذكي للإستشارات</h2>
+            <p style="color: #94a3b8; font-size: 0.95rem; margin-bottom: 1rem;">اطرح أي سؤال حول الحوكمة، بناء السياسات، أو رفع الكفاءة المؤسسية، وسيجيبك المساعد فوراً:</p>
+            <div class="chat-input-area">
+                <input type="text" id="userQuestion" placeholder="اكتب سؤالك هنا... (مثلاً: كيف نبني مؤشرات أداء فعالة؟)">
+                <button onclick="askAI()">إرسال السؤال</button>
+            </div>
+            <div id="chatResponse" class="chat-response"></div>
         </div>
     </div>
 
     <script>
-        function getAnswer() {
-            const q = document.getElementById('question').value.trim();
-            const res = document.getElementById('response');
+        function askAI() {
+            const rawQ = document.getElementById('userQuestion').value.trim();
+            const resBox = document.getElementById('chatResponse');
             
-            if(!q) {
-                res.style.display = 'block';
-                res.innerHTML = 'الرجاء إدخال سؤالك لنتمكن من خدمتك بالشكل الأمثل.';
+            if(!rawQ) {
+                resBox.style.display = 'block';
+                resBox.innerHTML = 'الرجاء إدخال سؤالك لنتمكن من خدمتك بالشكل الأمثل.';
                 return;
             }
 
-            let answer = "";
-            const lowerQ = q.toLowerCase();
+            const q = rawQ.toLowerCase();
+            let reply = '';
 
-            if (lowerQ.includes('حوكمة') || lowerQ.includes('سياسات')) {
-                answer = "الحوكمة هي العمود الفقري لأي منظومة ناجحة؛ تبدأ بتحديد الصلاحيات وفصل المهام لضمان الشفافية والمساءلة.";
-            } else if (lowerQ.includes('مشاريع') || lowerQ.includes('إدارة')) {
-                answer = "لتحقيق التميز الريادي في إدارة المشاريع، يجب ربط الأهداف بالنتائج الملموسة ومتابعة دورة حياة المشروع بصرامة.";
-            } else if (lowerQ.includes('raci') || lowerQ.includes('صلاحيات')) {
-                answer = "تطبيق مصفوفة RACI يتطلب تحديد دقيق: المسؤول عن التنفيذ، المسؤول عن الاعتماد، المستشار، والمطلع.";
-            } else if (lowerQ.includes('kpis') || lowerQ.includes('مؤشرات') || lowerQ.includes('أداء')) {
-                answer = "بناء مؤشرات الأداء (KPIs) يتطلب ربط الأهداف الاستراتيجية بأرقام واضحة، مع لوحات متابعة (Dashboards) فورية.";
-            } else if (lowerQ.includes('bpr') || lowerQ.includes('هندسة') || lowerQ.includes('عمليات')) {
-                answer = "إعادة هندسة العمليات (BPR) تعني التخلص من الإجراءات البيروقراطية غير المجدية وتصميم مسارات عمل رشيقة.";
+            if(q.includes('مؤشرات') || q.includes('kpi') || q.includes('أداء')) {
+                reply = '<strong>المساعد الذكي:</strong> بناء مؤشرات الأداء الرئيسية (KPIs) يتطلب ربط الأهداف الاستراتيجية بأرقام واضحة وقابلة للقياس، مع إنشاء لوحات متابعة (Dashboards) فورية لتتبع نسب الإنجاز ومعالجة الانحرافات مبكراً.';
+            } else if(q.includes('هندسة') || q.includes('عمليات') || q.includes('bpr') || q.includes('الخطوات')) {
+                reply = '<strong>المساعد الذكي:</strong> الخطوات الأساسية لإعادة هندسة العمليات (BPR) تشمل: تحديد وتدفق العمليات الحالية، إزالة الخطوات غير المضافة للقيمة، إعادة تصميم مسارات الموافقات لتقليل الزمن، وأتمتة المهام المتكررة لرفع الكفاءة التشغيلية.';
+            } else if(q.includes('raci') || q.includes('صلاحيات') || q.includes('مصفوفة')) {
+                reply = '<strong>المساعد الذكي:</strong> لتطبيق مصفوفة توزيع الصلاحيات (RACI) بكفاءة، يتم تحديد المسؤول عن التنفيذ (Responsible)، المسؤول المباشر عن الاعتماد (Accountable)، المُستشار في الرأي (Consulted)، والمُطلع على النتيجة (Informed) لمنع تداخل الأدوار.';
+            } else if(q.includes('تحول') || q.includes('رقمي') || q.includes('أتمتة') || q.includes('معايير')) {
+                reply = '<strong>المساعد الذكي:</strong> أهم معايير نجاح التحول الرقمي هي: توحيد وتوثيق الإجراءات قبل برمجتها، ربط الأنظمة لمنع ازدواجية الإدخال، ضمان أمن وسلامة الوثائق، وتدريب الفرق لضمان تبني التقنية بسلاسة.';
             } else {
-                answer = "سؤال جوهري! استشارتك في محلها، ولكل منظومة خصوصيتها التي تتطلب تحليلاً دقيقاً من خبيرة متخصصة.";
+                reply = '<strong>المساعد الذكي:</strong> سؤال استراتيجي ممتاز! في "منظومة سيادة الأعمال"، نؤكد دائماً أن الإجابة تبدأ من إطار عمل منهجي موثق، تحديد المسؤوليات بوضوح عبر مصفوفة الصلاحيات، ومتابعة الأداء بمؤشرات قياس رقمية دورية لضمان أعلى مستويات الكفاءة.';
             }
 
-            res.innerHTML = "<strong>المساعد الذكي:</strong> " + answer + "<br><br><em>هل ترغب في تعميق هذه الرؤية لمشروعك وتطبيقها باحترافية؟ أنا هنا لتنفيذها معك، تواصل معي مباشرة عبر الواتساب لنبدأ العمل!</em>";
-            res.style.display = 'block';
+            resBox.style.display = 'block';
+            resBox.innerHTML = reply;
         }
     </script>
 </body>
